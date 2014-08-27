@@ -14,6 +14,31 @@
   <body>
 
     <!-- HEADER -->
+    <script>
+		
+		function onBridgeReady(){
+			WeixinJSBridge.call('hideOptionMenu');
+		}
+
+		if (typeof WeixinJSBridge == "undefined"){
+		
+			document.writeln("WeixinJSBridge undefined")
+		
+			if( document.addEventListener ){
+				document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+			}else if (document.attachEvent){
+				document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+				document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+			}
+		}else{
+		
+			document.writeln("onBridgeReady")
+
+			onBridgeReady();
+		}
+	</script>
+    
+    
     <div id="header_wrap" class="outer">
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/mingzhizeng/testWeb">View on GitHub</a>
